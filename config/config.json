@@ -2,7 +2,7 @@
   "development":
   {
     "username": "root",
-    "password": "dataguard",
+    "password": null,
     "database": "taskTurtle",
     "host": "localhost",
     "dialect": "mysql"
