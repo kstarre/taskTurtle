@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var fs = require("fs");
 var path = require("path");
@@ -21,6 +21,10 @@ fs
 
 Object.keys(db).forEach(function(modelName) {
   if ("associate" in db[modelName]) {
+    db[modelName].associate(db);
+  }
+
+  if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });

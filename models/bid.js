@@ -1,5 +1,6 @@
+'use strict';
 module.exports = function(sequelize, Sequelize) {
-  var Bid = sequelize.define("bid", {
+  var Bid = sequelize.define("Bid", {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -9,24 +10,21 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.DECIMAL,
       notEmpty: true
     }
-  }, 
-  {
-    classMethods: {
-      associate: function(models) {
-        Bid.belongsTo(models.Job, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-
-        Bid.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-      }
-    }
   });
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Bid.belongsTo(models.Job);
+
+  //       Bid.belongsTo(models.User);
+  //     }
+  //   }
+  // });
+
+  Bid.associate = function(models) {
+    Bid.belongsTo(models.Job);
+    Bid.belongsTo(models.User);
+  }
 
   return Bid;
 };

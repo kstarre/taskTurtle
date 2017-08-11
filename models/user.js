@@ -1,5 +1,7 @@
+'use strict';
+
 module.exports = function(sequelize, Sequelize) {
-  var User = sequelize.define("user", {
+  var User = sequelize.define("User", {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -33,13 +35,20 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.ENUM("user", "contractor", "admin"),
       defaultValue: "user"
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        User.hasMany(models.Jobs);
-        User.hasMany(models.Bids);
-      }
-    }
   });
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       User.hasMany(models.Job);
+
+  //       User.hasMany(models.Bid);
+  //     }
+  //   }
+  // });
+
+  User.associate = function(models) {
+    User.hasMany(models.Job);
+    User.hasMany(models.Bid);
+  }
   return User;
 };

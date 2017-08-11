@@ -1,5 +1,7 @@
+'use strict';
+
 module.exports = function(sequelize, Sequelize) {
-  var Job = sequelize.define("job", {
+  var Job = sequelize.define("Job", {
     id: {
       autoIncrement: true,
       primaryKey: true,
@@ -24,21 +26,21 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.ENUM("active", "inactive"),
       defaultValue: "active"
     }
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Job.belongsTo(models.User, {
-          foreignKey: {
-            allowNull: false
-          }
-        });
-
-        Job.hasMany(models.Bid);
-      }
-    }
   });
+  // , {
+  //   classMethods: {
+  //     associate: function(models) {
+  //       Job.belongsTo(models.User);
 
-  // Job.belongsTo(User);
+  //       Job.hasMany(models.Bid);
+  //     }
+  //   }
+  // });
+
+  Job.associate = function(models) {
+    Job.belongsTo(models.User);
+    Job.hasMany(models.Bid);
+  }
 
   return Job;
 };
