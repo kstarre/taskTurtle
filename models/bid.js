@@ -8,18 +8,25 @@ module.exports = function(sequelize, Sequelize) {
     amount: {
       type: Sequelize.DECIMAL,
       notEmpty: true
-    },
-    created_on: {
-      type: Sequelize.DATE
     }
-    // ,
-    // {
-    //   // Foreign Key to Job ID
-    // },
-    // {
-    //   // Foreign Key to Company ID
-    // }
+  }, 
+  {
+    classMethods: {
+      associate: function(models) {
+        Bid.belongsTo(models.Job, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+
+        Bid.belongsTo(models.User, {
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      }
+    }
   });
 
   return Bid;
-}
+};

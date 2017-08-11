@@ -30,10 +30,16 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.DATE
     },
     status: {
-      type: Sequelize.ENUM("active", "inactive"),
-      defaultValue: "active"
+      type: Sequelize.ENUM("user", "contractor", "admin"),
+      defaultValue: "user"
+    }
+  }, {
+    classMethods: {
+      associate: function(models) {
+        User.hasMany(models.Jobs);
+        User.hasMany(models.Bids);
+      }
     }
   });
-
   return User;
-}
+};
