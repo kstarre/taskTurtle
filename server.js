@@ -7,6 +7,7 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 // Body Parser
+app.use(express.static(process.cwd() + "/public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
