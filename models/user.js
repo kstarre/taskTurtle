@@ -15,9 +15,6 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.STRING,
       notEmpty: true
     },
-    username: {
-      type: Sequelize.TEXT,
-    },
     email: {
       type: Sequelize.STRING,
       validate: {
@@ -36,15 +33,6 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: "user"
     }
   });
-  // , {
-  //   classMethods: {
-  //     associate: function(models) {
-  //       User.hasMany(models.Job);
-
-  //       User.hasMany(models.Bid);
-  //     }
-  //   }
-  // });
 
   User.associate = function(models) {
     User.hasMany(models.Job);

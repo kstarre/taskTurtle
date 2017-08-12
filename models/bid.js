@@ -11,15 +11,6 @@ module.exports = function(sequelize, Sequelize) {
       notEmpty: true
     }
   });
-  // , {
-  //   classMethods: {
-  //     associate: function(models) {
-  //       Bid.belongsTo(models.Job);
-
-  //       Bid.belongsTo(models.User);
-  //     }
-  //   }
-  // });
 
   Bid.associate = function(models) {
     Bid.belongsTo(models.Job);
