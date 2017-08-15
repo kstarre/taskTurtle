@@ -15,10 +15,6 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.STRING,
       notEmpty: true
     },
-    created_by: {
-      type: Sequelize.INTEGER,
-      notEmpty: true
-    },
     duration: {
       type: Sequelize.INTEGER
     },
@@ -27,15 +23,6 @@ module.exports = function(sequelize, Sequelize) {
       defaultValue: "active"
     }
   });
-  // , {
-  //   classMethods: {
-  //     associate: function(models) {
-  //       Job.belongsTo(models.User);
-
-  //       Job.hasMany(models.Bid);
-  //     }
-  //   }
-  // });
 
   Job.associate = function(models) {
     Job.belongsTo(models.User);
