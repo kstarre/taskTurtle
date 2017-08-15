@@ -7,16 +7,24 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 // Body Parser
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
 
 //Passport
-app.use(session( { secret: 'cwru', resave: true, saveUninitialized:true } ));
+app.use(session({
+    secret: 'cwru',
+    resave: true,
+    saveUninitialized: true
+}));
 app.use(passport.initialize());
-app.use(passport.session());  //persistent login
+app.use(passport.session()); //persistent login
 
 // Handlebars
-app.engine("handlebars", exphbs({defaultLayout: "main" }));
+app.engine("handlebars", exphbs({
+    defaultLayout: "main"
+}));
 app.set("view engine", "handlebars");
 
 // app.get("/", function(req, res) {
@@ -30,19 +38,20 @@ var models = require("./models");
 var authRoute = require("./routes/auth.js")(app, passport);
 
 // Passport Strategy
-require("./config/passport/passport.js")(passport, models.user);
+require("./config/passport/passport.js")(passport, models.User);
 
 //Sync Database
 models.sequelize.sync().then(function() {
-  console.log('Nice! Database looks fine')
-}).catch(function(err) { 
-  console.log(err, "Something went wrong with the Database Update!")
+    console.log('Nice! Database looks fine')
+}).catch(function(err) {
+    console.log(err, "Something went wrong with the Database Update!")
 });
 
 
 app.listen(PORT, function(err) {
-  if (!err) {
-    console.log("App listening on port: " + PORT);
-  } else { console.log(err); }
+    if (!err) {
+        console.log("App listening on port: " + PORT);
+    } else {
+        console.log(err);
+    }
 });
- 
