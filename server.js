@@ -20,10 +20,6 @@ app.use(passport.session());  //persistent login
 app.engine("handlebars", exphbs({defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.get("/", function(req, res) {
-//   res.send("welcome to Passport with Sequelize");
-// });
-
 //Models
 var models = require("./models");
 
