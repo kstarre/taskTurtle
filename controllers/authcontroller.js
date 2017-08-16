@@ -19,5 +19,5 @@ exports.logout = function(req, res) {
 }
 
 exports.newbid = function(req, res) {
-	res.render("signin");
+	res.render("newbid");
 }
