@@ -1,0 +1,27 @@
+<form id="createJob" name="createJob" method="post" action="/createJob">
+    <div class="form-group">
+        <label for="jobtitle">Job Title</label>
+        <input class="text" type="text" name="jobTitle" />
+    </div>
+    <div class="for">
+        <label for="jobdescription">Job Description</label>
+        <input class="text" type="text" name="jobDescription" />
+    </div>
+    <div class="form-group">
+        <label for="duration">Bid Duration</label>
+        <input class="integer" type="integer" name="bidLength" />
+    </div>
+    <div class="form-group">
+        <label for="jobType">Job Type</label>
+        <input class="checkbox" type="checkbox" name="construction">Construction
+        <br>
+        <input class="checkbox" type="checkbox" name="indoor">Indoor
+        <br>
+        <input class="checkbox" type="checkbox" name="landscaping">Landscaping
+        <br>
+        <input class="checkbox" type="checkbox" name="outdoor">Outdoor
+        <br>
+        <input class="checkbox" type="checkbox" name="renovation">Renovation
+        <br>
+    </div>
+    <input class="btn" type="submit" value="Create" />

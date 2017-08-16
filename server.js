@@ -44,7 +44,9 @@ var authRoute = require("./routes/auth.js")(app, passport);
 require("./config/passport/passport.js")(passport, models.User);
 
 //Sync Database
-models.sequelize.sync().then(function() {
+models.sequelize.sync({
+    force: true
+}).then(function() {
     console.log('Nice! Database looks fine')
 }).catch(function(err) {
     console.log(err, "Something went wrong with the Database Update!")
