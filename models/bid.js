@@ -9,6 +9,14 @@ module.exports = function(sequelize, Sequelize) {
     amount: {
       type: Sequelize.DECIMAL,
       notEmpty: true
+    },
+    duration: {
+      type: Sequelize.INTEGER,
+      notEmpty: true
+    },
+    accepted: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     }
   });
 

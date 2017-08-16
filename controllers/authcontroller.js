@@ -17,3 +17,7 @@ exports.logout = function(req, res) {
     res.redirect("/");
   });
 }
+
+exports.newbid = function(req, res) {
+	res.render("newbid");
+}

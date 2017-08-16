@@ -20,10 +20,6 @@ app.use(passport.session());  //persistent login
 app.engine("handlebars", exphbs({defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// app.get("/", function(req, res) {
-//   res.send("welcome to Passport with Sequelize");
-// });
-
 //Models
 var models = require("./models");
 
@@ -31,10 +27,10 @@ var models = require("./models");
 var authRoute = require("./routes/auth.js")(app, passport);
 
 // Passport Strategy
-require("./config/passport/passport.js")(passport, models.user);
+require("./config/passport/passport.js")(passport, models.User);
 
 //Sync Database
-models.sequelize.sync().then(function() {
+models.sequelize.sync({force: true}).then(function() {
   console.log('Nice! Database looks fine')
 }).catch(function(err) { 
   console.log(err, "Something went wrong with the Database Update!")
