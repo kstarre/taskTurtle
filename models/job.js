@@ -17,14 +17,11 @@ module.exports = function(sequelize, Sequelize) {
         duration: {
             type: Sequelize.INTEGER,
             validate: {
-                isNumeric: true,
+                isInt: true,
                 allowNull: false
             }
         },
-        status: {
-            type: Sequelize.ENUM("active", "inactive"),
-            defaultValue: "active"
-        },
+
         construction: {
             type: Sequelize.BOOLEAN,
             defaultValue: false
@@ -45,6 +42,10 @@ module.exports = function(sequelize, Sequelize) {
             type: Sequelize.BOOLEAN,
             defaultValue: false
         },
+        status: {
+            type: Sequelize.ENUM("active", "inactive"),
+            defaultValue: "active"
+        }
     });
 
     Job.associate = function(models) {
