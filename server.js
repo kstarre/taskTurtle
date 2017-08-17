@@ -30,10 +30,6 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-// app.get("/", function(req, res) {
-//   res.send("welcome to Passport with Sequelize");
-// });
-
 //Models
 var models = require("./models");
 
@@ -44,12 +40,19 @@ var authRoute = require("./routes/auth.js")(app, passport);
 require("./config/passport/passport.js")(passport, models.User);
 
 //Sync Database
+<<<<<<< HEAD
 models.sequelize.sync({
     force: true
 }).then(function() {
     console.log('Nice! Database looks fine')
 }).catch(function(err) {
     console.log(err, "Something went wrong with the Database Update!")
+=======
+models.sequelize.sync(/*{force: true}*/).then(function() {
+  console.log('Nice! Database looks fine')
+}).catch(function(err) { 
+  console.log(err, "Something went wrong with the Database Update!")
+>>>>>>> 03e770a10cf21e16074cb32f166a7885901e5f24
 });
 
 

@@ -13,6 +13,7 @@ exports.dashboard = function(req, res) {
 }
 
 exports.logout = function(req, res) {
+<<<<<<< HEAD
     req.session.destroy(function(err) {
         res.redirect("/");
     });
@@ -21,3 +22,13 @@ exports.logout = function(req, res) {
 exports.createjob = function(req, res) {
     res.render("createjob");
 }
+=======
+  req.session.destroy(function(err) {
+    res.redirect("/");
+  });
+}
+
+exports.newbid = function(req, res) {
+	res.render("newbid");
+}
+>>>>>>> 03e770a10cf21e16074cb32f166a7885901e5f24
