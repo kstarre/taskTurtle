@@ -7,12 +7,12 @@ module.exports = function(app, passport) {
   app.get("/signin", authController.signin);
   app.get("/dashboard", isLoggedIn, authController.dashboard);
   app.get("/logout", authController.logout);
-  app.get("/newbid", authController.newbid);
+  app.get("/newbid", isLoggedIn, authController.newbid);
 
-  app.get("/:id/viewbids", (req, res) => {
+  app.get("/:jobID/viewbids", isLoggedIn, (req, res) => {
     db.Bid.findAll({
       where: {
-        JobID: req.params.id
+        JobId: req.params.jobID
       }
     }).then( data => {
       res.render("viewbids", {
@@ -21,7 +21,7 @@ module.exports = function(app, passport) {
     })
   });
 
-  app.put("/:bidID", (req, res) => {
+  app.put("/:bidID", isLoggedIn, (req, res) => {
     db.Bid.update({
       accepted: req.body.accepted
     }, {
@@ -33,10 +33,12 @@ module.exports = function(app, passport) {
     })
   });
 
-  app.post("/newbid", (req, res) => {
+  app.post("/:jobID/newbid", isLoggedIn, (req, res) => {
     db.Bid.create({
       amount: req.body.bidAmount,
-      duration: req.body.jobDuration
+      duration: req.body.jobDuration,
+      JobId: req.params.jobID,
+      UserId: req.user.id
     }).then( () => {
       res.redirect("/");
     })

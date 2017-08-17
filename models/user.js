@@ -17,6 +17,7 @@ module.exports = function(sequelize, Sequelize) {
     },
     email: {
       type: Sequelize.STRING,
+      allowNull: false,
       validate: {
         isEmail: true
       }
@@ -24,6 +25,10 @@ module.exports = function(sequelize, Sequelize) {
     password: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    company: {
+      type: Sequelize.STRING,
+      allowNull: true
     },
     last_login: {
       type: Sequelize.DATE
