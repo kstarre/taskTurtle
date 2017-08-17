@@ -9,6 +9,37 @@ module.exports = function(app, passport) {
   app.get("/logout", authController.logout);
   app.get("/newbid", isLoggedIn, authController.newbid);
 
+  app.get("/:jobID/edit", isLoggedIn, (req, res) => {
+    db.Job.findAll({
+      where: {
+        id: req.params.jobID
+      }
+    }).then( data => {
+      res.render("editjob", data[0]);
+    })
+  });
+
+  app.put("/:jobID/edit", isLoggedIn, (req, res) => {
+    db.Job.update({
+      jobtitle: req.body.jobTitle,
+      jobdescription: req.body.jobDescription,
+      duration: req.body.bidLength,
+      construction: (req.body.construction === "on" ? true : false),
+      indoor: (req.body.indoor === "on" ? true : false),
+      landscaping: (req.body.landscaping === "on" ? true : false),
+      outdoor: (req.body.outdoor === "on" ? true : false),
+      renovation: (req.body.renovation === "on" ? true : false)
+    }, {
+      where: {
+        id: req.params.jobID
+      }
+    }).then( () => {
+
+      // Could we redirect to the /:jobID here? how?
+      res.redirect("/dashboard");
+    })
+  })
+
   app.get("/:jobID/viewbids", isLoggedIn, (req, res) => {
     db.Bid.findAll({
       where: {

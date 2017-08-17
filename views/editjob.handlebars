@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+
+            <form id="editJob" method="POST" action="/:jobID/edit?_method=PUT">
+                <div class="form-group">
+                    <label for="jobtitle">Job Title</label>
+                    <input class="text" type="text" name="jobTitle" value="{{title}}" />
+                </div>
+                <div class="for">
+                    <label for="jobdescription">Job Description</label>
+                    <input class="text" type="text" name="jobDescription" value="{{description}}" />
+                </div>
+                <div class="form-group">
+                    <label for="duration">Bid Duration</label>
+                    <input class="integer" type="integer" name="bidLength" value="{{duration}}" />
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" name="location" value="{{location}}" />
+                </div>
+                <div class="form-group">
+                    <label for="jobType">Job Type</label>
+                    <input class="checkbox" type="checkbox" name="construction">Construction
+                    <br>
+                    <input class="checkbox" type="checkbox" name="indoor">Indoor
+                    <br>
+                    <input class="checkbox" type="checkbox" name="landscaping">Landscaping
+                    <br>
+                    <input class="checkbox" type="checkbox" name="outdoor">Outdoor
+                    <br>
+                    <input class="checkbox" type="checkbox" name="renovation">Renovation
+                    <br>
+                </div>
+                <button type="submit" class="btn btn-default">Update</button>
+            </form>
+
+        </div>
+    </div>
+</div>
