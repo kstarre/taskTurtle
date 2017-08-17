@@ -52,7 +52,7 @@ module.exports = function(app, passport) {
     })
   });
 
-  app.put("/:bidID", isLoggedIn, (req, res) => {
+  app.put("/bids/:bidID", isLoggedIn, (req, res) => {
     db.Bid.update({
       accepted: req.body.accepted
     }, {
