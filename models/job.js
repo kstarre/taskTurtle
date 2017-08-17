@@ -16,7 +16,12 @@ module.exports = function(sequelize, Sequelize) {
       notEmpty: true
     },
     duration: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      notEmpty: true
+    },
+    location: {
+      type: Sequelize.INTEGER,
+      len: [5]
     },
     status: {
       type: Sequelize.ENUM("active", "inactive"),
