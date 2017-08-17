@@ -17,9 +17,7 @@
               <td>{{amount}}</td>
               <td>{{duration}}</td>
               <td>
-
-                {{!-- Ask about this action... how will it link to routes --}}
-                <form action="/{{id}}?_method=PUT" method="POST">
+                <form action="/bids/{{id}}?_method=PUT" method="POST">
                   <input type="hidden" name="accepted" value="1">
                   <button class="btn btn-default" type="submit">Accept?</button>
                 </form>
