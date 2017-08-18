@@ -1,76 +1,38 @@
-<div class="row">
-  <p>Welcome to {{title}}</p>
-</div>
-{{!-- <div class="row">
-  <h2>User list</h2>
-  <ul>
-    {{#each users}}
-      <li>{{username}}</li>
-    {{/each}}
-  </ul>
-</div> --}}
-<div class="row">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>Create a Job</h3>
-      </div>
-      <div class="panel-body">
-        <form id="createJob" name="createJob" method="post" action="/jobs">
-          <div class="form-group">
-            <label for="jobTitle">Job Title</label>
-            <input class="text" type="text" name="jobTitle" />
-          </div>
-          <div class="form-group">
-            <label for="jobDescription">Job Description</label>
-            <input class="text" type="text" name="jobDescription" />
-          </div>
-          <div class="form-group">
-            <label for="duration">Bid Duration</label>
-            <input class="integer" name="duration" type="text" />
-          </div>
-          <div class="form-group">
-            <label for="jobType">Job Type</label>
-            <input class="checkbox" type="checkbox" name="construction">Construction
-            <br>
-            <input class="checkbox" type="checkbox" name="indoor">Indoor
-            <br>
-            <input class="checkbox" type="checkbox" name="landscaping">Landscaping
-            <br>
-            <input class="checkbox" type="checkbox" name="outdoor">Outdoor
-            <br>
-            <input class="checkbox" type="checkbox" name="renovation">Renovation
-            <br>
-          </div>
-          <input class="btn" type="submit" value="Create" />
-        </form>
+<!-- BANNER SECTION -->
+<section class="clearfix homeBanner" style="background-image: url(img/banner/banner2.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="banerInfo">
+          <h1> Find a task to on Bid</h1>
+          <p>Connect with local contactors</p>
+          <form class="form-inline" action="listing-sidebar-map-left.html" method="">
+            <div class="form-group">
+            <div class="contactSelect">
+                    <select name="guiest_id9" id="guiest_id9" class="select-drop">
+                      <option value="0">All Category</option>
+                      <option value="1">Outdoor</option>
+                      <option value="2">Indoor</option>
+                      <option value="3">Cleaning</option>
+                      <option value="4">Car</option>
+                      <option value="5">Repair</option>
+                      <option value="6">Moving</option>
+                      <option value="7">General</option>
+                    </select>
+                  </div>
+
+            </div>
+            <div class="form-group">
+              <div class="input-group">
+                <div class="input-group-addon">Near</div>
+                <input type="text" class="form-control" id="nearLocation" placeholder="enter zip code">
+                <div class="input-group-addon addon-right"><i class="icon-listy icon-target" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Search <i class="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>Job Listings</h3>
-      </div>
-      <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Job Title</a>
-              </th>
-              <th>Job Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each jobs}}
-              <tr>
-                <td><a href="/jobs/{{id}}">{{title}}</a></td>
-                <td>{{description}}</td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
