@@ -1,12 +1,22 @@
 {
   "name": "taskturtle",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Bidding app for jobs",
   "scripts": {
     "start": "node ./bin/www",
     "devstart": "nodemon ./bin/www"
   },
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Somesing9/taskTurtle.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Somesing9/taskTurtle/issues"
+  },
+  "homepage": "https://github.com/Somesing9/taskTurtle#readme",
+ "dependencies": {
     "async": "^2.5.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
