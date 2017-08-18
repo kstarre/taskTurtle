@@ -2,22 +2,39 @@
 
 module.exports = function(sequelize, Sequelize) {
   var Job = sequelize.define("Job", {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: Sequelize.INTEGER
-    },
     title: {
       type: Sequelize.STRING,
       notEmpty: true
     },
     description: {
-      type: Sequelize.STRING,
-      notEmpty: true
+      type: Sequelize.STRING
     },
     duration: {
       type: Sequelize.INTEGER,
-      notEmpty: true
+      validate: {
+        isInt: true,
+        allowNull: false
+      }
+    },
+    construction: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
+    },
+    indoor: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
+    },
+    landscaping: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
+    },
+    outdoor: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
+    },
+    renovation: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     },
     location: {
       type: Sequelize.INTEGER,
@@ -27,7 +44,7 @@ module.exports = function(sequelize, Sequelize) {
       type: Sequelize.ENUM("active", "inactive"),
       defaultValue: "active"
     }
-  });
+  }); 
 
   Job.associate = function(models) {
     Job.belongsTo(models.User);

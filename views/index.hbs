@@ -1,0 +1,63 @@
+<div class="row">
+  <p>Welcome to {{title}}</p>
+</div>
+{{!-- <div class="row">
+  <h2>User list</h2>
+  <ul>
+    {{#each users}}
+      <li>{{username}}</li>
+    {{/each}}
+  </ul>
+</div> --}}
+<div class="row">
+  <div class="col-md-6">
+    <h2>Create a Job</h2>
+    <form id="createJob" name="createJob" method="post" action="/jobs">
+      <div class="form-group">
+        <label for="jobtitle">Job Title</label>
+        <input class="text" type="text" name="jobTitle" />
+      </div>
+      <div class="for">
+        <label for="jobdescription">Job Description</label>
+        <input class="text" type="text" name="jobDescription" />
+      </div>
+      <div class="form-group">
+        <label for="duration">Bid Duration</label>
+        <input class="integer" name="duration" type="integer" name="bidLength" />
+      </div>
+      <div class="form-group">
+        <label for="jobType">Job Type</label>
+        <input class="checkbox" type="checkbox" name="construction">Construction
+        <br>
+        <input class="checkbox" type="checkbox" name="indoor">Indoor
+        <br>
+        <input class="checkbox" type="checkbox" name="landscaping">Landscaping
+        <br>
+        <input class="checkbox" type="checkbox" name="outdoor">Outdoor
+        <br>
+        <input class="checkbox" type="checkbox" name="renovation">Renovation
+        <br>
+      </div>
+      <input class="btn" type="submit" value="Create" />
+  </div>
+  <div class="col-md-6">
+    <h3>Job Listings</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Job Title</a>
+          </th>
+          <th>Job Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each jobs}}
+          <tr>
+            <td><a href="/jobs/{{id}}">{{title}}</a></td>
+            <td>{{description}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

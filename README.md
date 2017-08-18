@@ -1,3 +1,6 @@
+# taskTurtle
+SET DEBUG=taskturtle: * & npm start
+=======
 # What is TaskTurtle?
 
 taskTurtle is a site to connect people who need work done, with people who do work. Are you in need of a handyman? A painter?

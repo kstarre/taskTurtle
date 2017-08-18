@@ -1,4 +1,3 @@
-'use strict';
 module.exports = function(sequelize, Sequelize) {
   var Bid = sequelize.define("Bid", {
     id: {
@@ -27,3 +26,4 @@ module.exports = function(sequelize, Sequelize) {
 
   return Bid;
 };
+
