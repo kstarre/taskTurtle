@@ -14,7 +14,6 @@ module.exports = function(passport, user) {
       var generateHash = function(password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
       };
-
       User.findOne({
         where: {
           email: email
@@ -49,8 +48,7 @@ module.exports = function(passport, user) {
     }
   ));
 
-  passport.use("local-signin", new LocalStrategy( 
-    {
+  passport.use("local-signin", new LocalStrategy({
       // Default use username/password; we override with Email
       usernameField: "email",
       passwordField: "password",
@@ -84,18 +82,19 @@ module.exports = function(passport, user) {
       }).catch(function(err) {
         console.log("Error: ", err);
         return done(null, false, {
-          message: "Somethign went wrong with Signin"
+          message: "Something went wrong with Signin"
         });
       });
     }
   ));
 
   passport.serializeUser(function(user, done) {
-    done(null, user.id);
+    var sessionUser = { id: user.id, email: user.email };
+    done(null, sessionUser);
   });
 
-  passport.deserializeUser(function(id, done) {
-    User.findById(id).then(function(user) {
+  passport.deserializeUser(function(user, done) {
+    User.findById(user.id).then(function(user) {
       if (user) {
         done(null, user.get());
       } else {
@@ -103,4 +102,14 @@ module.exports = function(passport, user) {
       }
     });
   });
+
+  // passport.deserializeUser(function(id, done) {
+  //   User.findById(id).then(function(user) {
+  //     if (user) {
+  //       done(null, user.get());
+  //     } else {
+  //       done(users.errors, null);
+  //     }
+  //   });
+  // });
 }

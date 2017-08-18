@@ -1,2 +1,2 @@
 # taskTurtle
-# https://code.tutsplus.com/tutorials/using-passport-with-sequelize-and-mysql--cms-27537
+SET DEBUG=taskturtle: * & npm start

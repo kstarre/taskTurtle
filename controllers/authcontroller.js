@@ -1,16 +1,14 @@
 var exports = module.exports = {};
-
+ 
 exports.signup = function(req, res) {
-  res.render("signup");
-}
+    res.render('signup'); 
+};
 
 exports.signin = function(req, res) {
-  res.render("signin");
-}
-
-exports.dashboard = function(req, res) {
-  res.render("dashboard");
-}
+ 
+    res.render('signin');
+ 
+};
 
 exports.logout = function(req, res) {
   req.session.destroy(function(err) {
@@ -18,6 +16,9 @@ exports.logout = function(req, res) {
   });
 }
 
-exports.newbid = function(req, res) {
-	res.render("newbid");
-}
+exports.isLoggedIn = function (req,res,next) {
+  if ( req.isAuthenticated() ) {
+    return next();
+  }
+  res.redirect('/signin');
+};
