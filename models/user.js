@@ -29,6 +29,12 @@ module.exports = function(sequelize, Sequelize) {
     status: {
       type: Sequelize.ENUM("user", "contractor", "admin"),
       defaultValue: "user"
+    },
+    createdAt: {
+      type: Sequelize.DATE
+    },
+    createdAt: {
+      type: Sequelize.DATE
     }
   });
 
