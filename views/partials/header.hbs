@@ -18,8 +18,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav navbar-right">
+          {{#unless user}}
             <li class=""><a href="/signup">Sign Up</a></li>
             <li class=""><a href="/signin">Login</a></li>
+            {{/unless}}
+            {{#if user}}
             <li class=" dropdown singleDrop">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> My Dashboard <i class="fa fa-angle-down" aria-hidden="true"></i></a>
               <ul class="dropdown-menu dropdown-menu-right">
@@ -28,6 +31,7 @@
                 <li><a href="/my-task.html">My Task</a></li>
               </ul>
             </li>
+            {{/if}}
           </ul>
         </div>
         {{#if user}}

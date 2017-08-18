@@ -1,5 +1,5 @@
 # taskTurtle
-SET DEBUG=taskturtle: * & npm start
+set DEBUG=taskturtle: * & npm run devstart
 =======
 # What is TaskTurtle?
 
