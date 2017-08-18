@@ -31,7 +31,7 @@ new bid to keep up with your competitors!
 When the bid timer runs out on a job, the creator of the job is notified that the bidding time is up, and the bids are
 available to view. The creator of the job will then make the difficult decision of choosing an eager contractor to come out
 and do the work that needs to be done. Once a contractor is chosen, they will be notified, and the contact information of 
-the task creator will be revealed. It's then time for the job creator, and the contractor to meet to hammer (pun) out the
+the job creator will be revealed. It's then time for the job creator, and the contractor to meet to hammer (pun) out the
 final details, and get to work.
 
 # Welcome to taskTurtle. Let's get some work done.
