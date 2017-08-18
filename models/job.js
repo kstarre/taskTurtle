@@ -11,9 +11,9 @@ module.exports = function(sequelize, Sequelize) {
     },
     duration: {
       type: Sequelize.INTEGER,
+      allowNull: false,
       validate: {
-        isInt: true,
-        allowNull: false
+        isInt: true
       }
     },
     construction: {

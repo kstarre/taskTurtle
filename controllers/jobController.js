@@ -40,7 +40,7 @@ exports.create_a_job_post = (req, res) => {
   Job.create({
     title: req.body.jobTitle,
     description: req.body.jobDescription,
-    duration: req.body.bidLength,
+    duration: req.body.duration,
     construction: (req.body.construction === "on" ? true : false),
     indoor: (req.body.indoor === "on" ? true : false),
     landscaping: (req.body.landscaping === "on" ? true : false),

@@ -11,11 +11,13 @@ router.get('/signup', authController.signup);
 router.get('/signin', authController.signin);
 router.post('/signin', passport.authenticate('local-signin', {
   successRedirect: '/',
-  failureRedirect: 'signin'
+  failureRedirect: 'signin',
+  failureFlash: true
 }));
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',
-  failureRedirect: '/signup'
+  failureRedirect: '/signup',
+  failureFlash: true
 }));
 
 router.get('/signout', authController.logout);
