@@ -25,8 +25,8 @@ app.use(methodOverride("_method"));
 // For Passport
 app.use(session({
   secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions

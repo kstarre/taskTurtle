@@ -10,10 +10,13 @@ router.get('/', indexController.index);
 router.get('/signup', authController.signup);
 router.get('/signin', authController.signin);
 router.post('/signin', passport.authenticate('local-signin', {
-  successRedirect: '/',
+  // successRedirect: '/',
   failureRedirect: 'signin',
   failureFlash: true
-}));
+}), (req, res) => {
+  // console.log(req.user);
+  res.render('index', {user: req.user});
+});
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',
   failureRedirect: '/signup',
