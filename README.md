@@ -1,4 +1,4 @@
-# What is taskTurtle?
+# What is TaskTurtle?
 
 taskTurtle is a site to connect people who need work done, with people who do work. Are you in need of a handyman? A painter?
 A general contractor? Post your job, and the workers will see and bid on those jobs, giving you quality work, and them, 
@@ -34,4 +34,4 @@ and do the work that needs to be done. Once a contractor is chosen, they will be
 the job creator will be revealed. It's then time for the job creator, and the contractor to meet to hammer (pun) out the
 final details, and get to work.
 
-# Welcome to taskTurtle. Let's get some work done.
+# Welcome to TaskTurtle. Let's get some work done.
