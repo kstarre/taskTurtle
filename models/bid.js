@@ -1,4 +1,3 @@
-'use strict';
 module.exports = function(sequelize, Sequelize) {
   var Bid = sequelize.define("Bid", {
     id: {
@@ -9,6 +8,14 @@ module.exports = function(sequelize, Sequelize) {
     amount: {
       type: Sequelize.DECIMAL,
       notEmpty: true
+    },
+    duration: {
+      type: Sequelize.INTEGER,
+      notEmpty: true
+    },
+    accepted: {
+      type: Sequelize.BOOLEAN,
+      defaultValue: false
     }
   });
 
@@ -19,3 +26,4 @@ module.exports = function(sequelize, Sequelize) {
 
   return Bid;
 };
+
