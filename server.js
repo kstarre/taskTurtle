@@ -9,25 +9,16 @@ var exphbs = require("express-handlebars");
 // Body Parser
 
 app.use(express.static(process.cwd() + "/public"));
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
-
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 //Passport
-app.use(session({
-    secret: 'cwru',
-    resave: true,
-    saveUninitialized: true
-}));
+app.use(session( { secret: 'cwru', resave: true, saveUninitialized:true } ));
 app.use(passport.initialize());
-app.use(passport.session()); //persistent login
+app.use(passport.session());  //persistent login
 
 // Handlebars
-app.engine("handlebars", exphbs({
-    defaultLayout: "main"
-}));
+app.engine("handlebars", exphbs({defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 //Models
@@ -52,14 +43,12 @@ models.sequelize.sync(/*{force: true}*/).then(function() {
   console.log('Nice! Database looks fine')
 }).catch(function(err) { 
   console.log(err, "Something went wrong with the Database Update!")
->>>>>>> 03e770a10cf21e16074cb32f166a7885901e5f24
 });
 
 
 app.listen(PORT, function(err) {
-    if (!err) {
-        console.log("App listening on port: " + PORT);
-    } else {
-        console.log(err);
-    }
+  if (!err) {
+    console.log("App listening on port: " + PORT);
+  } else { console.log(err); }
 });
+ 
