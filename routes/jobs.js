@@ -9,7 +9,9 @@ var authController = require('../controllers/authController');
 // Return all jobs, create a job
 router.get('/', jobController.job_list);
 router.post('/', authController.isLoggedIn, jobController.create_a_job_post);
-
+router.get('/create', authController.isLoggedIn, (req, res) => {
+  res.render('jobs/create');
+});
 // Send user to create job page
 // router.get('/create', (req, res) => { res.render('jobs/create'); });
 // router.get('/create', jobController.create_a_job_get);

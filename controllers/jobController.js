@@ -24,7 +24,7 @@ exports.get_job_details = (req, res) => {
         .then(bids => {
           console.log('Hell' + bids);
           // console.log(job.UserId + " " + req.user.id)
-          res.render('jobs/job', { job: job, bids: bids })
+          res.render('jobs/job', { job: job, bids: bids });
         })
     })
 };
@@ -36,11 +36,10 @@ exports.create_a_job_get = (req, res) => {
 
 
 exports.create_a_job_post = (req, res) => {
-  console.log(req.user.id);
   Job.create({
     title: req.body.jobTitle,
     description: req.body.jobDescription,
-    duration: req.body.duration,
+    duration: req.body.jobDuration,
     construction: (req.body.construction === "on" ? true : false),
     indoor: (req.body.indoor === "on" ? true : false),
     landscaping: (req.body.landscaping === "on" ? true : false),
@@ -48,7 +47,7 @@ exports.create_a_job_post = (req, res) => {
     renovation: (req.body.renovation === "on" ? true : false),
     UserId: req.user.id
   }).then(() => {
-    res.redirect("/");
+    res.redirect("/jobs");
   })
 
   // Job.create({

@@ -1,3 +1,72 @@
-<div class="row">
-  <p>This will be the create form</p>
-</div>
+<section class="clearfix bg-dark taskSection">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+          <form id="createJob" name="createJob" method="post" action="/jobs">
+          <div class="dashboardPageTitle text-center">
+            <h2></h2>
+          </div>
+          <div class="dashboardBoxBg mb30">
+            <div class="profileIntro paraMargin">
+              <h3>Make Task and Add Photo</h3>
+              <p>Upload a image to show the project you want the community to bid on.</p>
+              <div class="row">
+                <div class="form-group col-xs-12">
+                  <div class="imageUploader text-center">
+                    <div class="file-upload">
+                      <div class="upload-area">
+                        <input type="file" name="img[]" class="file">
+                        <button class="browse" type="button">Click or Drag images here</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="jobTitle">Task Title</label>
+                  <input type="text" class="form-control" id="taskTitle" name="jobTitle" placeholder="Task Title">
+                </div>
+                <div class="form-group col-sm-6 col-xs-12">
+                  <label for="taskCategory">Category</label>
+                  <div class="contactSelect">
+                    <select name="guiest_id9" id="guiest_id9" class="select-drop">
+                      <option value="0">All Category</option>
+                      <option value="1">Outdoor</option>
+                      <option value="2">Indoor</option>
+                      <option value="3">Cleaning</option>
+                      <option value="4">Car</option>
+                      <option value="5">Repair</option>
+                      <option value="6">Moving</option>
+                      <option value="7">General</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="jobDescription">Discribe the Task</label>
+                  <textarea class="form-control" rows="3" name="jobDescription" placeholder="Discribe the Task"></textarea>
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="taskAddress">Task Zip code</label>
+                  <input type="text" class="form-control" id="taskZipCode" placeholder="Task Zip code">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="addPrice">Price</label>
+                  <input type="text" class="form-control" id="addPrice" placeholder="Add Task starting bid price.">
+                </div>
+                <div class="form-group col-xs-12">
+                  <label for="jobDuration">Task Lenght to bid on</label>
+                  <input type="text" class="form-control" name="jobDuration" id="addPrice" placeholder="Add how long the task is open to bid on.">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-footer text-center">
+            <button type="submit" class="btn-submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+

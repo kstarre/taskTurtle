@@ -16,10 +16,11 @@ var models = require('./models');
 
 
 var app = express();
-
-// view engine setup
-app.engine("hbs", exphbs({ defaultLayout: "main", extname: '.hbs' }));
-app.set("view engine", "hbs");
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 
 // For Passport
 app.use(session({
@@ -29,22 +30,18 @@ app.use(session({
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+require('./config/passport/passport')(passport, models.User);
 
+// view engine setup
+app.engine("hbs", exphbs({ defaultLayout: "main", extname: '.hbs' }));
+app.set("view engine", "hbs");
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(methodOverride("_method"));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', index);
 app.use('/users', users);
 app.use('/jobs', jobs);
-
-require('./config/passport/passport')(passport, models.User);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -52,14 +49,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// //Sync Database
-// models.sequelize.sync().then(function() {
-//   console.log('Nice! Database looks fine')
-// }).catch(function(err) {
-//   console.log(err, "Something went wrong with the Database Update!")
-// });
-
 
 // error handler
 app.use(function(err, req, res, next) {
