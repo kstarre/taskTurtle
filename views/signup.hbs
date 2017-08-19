@@ -37,7 +37,11 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name="contractor"> I'm a contactor</label>
+                  <input type="checkbox" value='contractor' name="contractor" data-toggle='collapse' data-target='#company' aria-expanded="false" aria-controls="company" /> I am a contractor.
+              </div>
+              <div class="form-group collapse" id="company">
+                <label for="company">Company</label>
+                <input type="text" name="company" />
               </div>
               <div class="form-group col-xs-12 mb0">
                 <button type="submit" class="btn btn-primary">Create Account</button>
