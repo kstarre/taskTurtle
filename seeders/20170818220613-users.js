@@ -94,7 +94,23 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
       status: 'contractor'
-    }], {});
+    }]).then(() => {
+      return queryInterface.bulkInsert('Jobs', [{
+        title: faker.name.jobTitle(),
+        description: faker.name.jobDescriptor(),
+        duration: 4,
+        UserId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }, {
+        title: faker.commerce.productName(),
+        description: faker.commerce.product(),
+        duration: 5,
+        UserId: 2,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }])
+    });
   },
 
   down: function(queryInterface, Sequelize) {

@@ -38,6 +38,11 @@ require('./config/passport/passport')(passport, models.User);
 app.engine("hbs", exphbs({ defaultLayout: "main", extname: '.hbs' }));
 app.set("view engine", "hbs");
 
+app.use(function(req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));

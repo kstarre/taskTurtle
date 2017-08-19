@@ -5,16 +5,15 @@ var authController = require('../controllers/authController');
 var passport = require('passport');
 
 /* GET home page. */
-router.get('/', (req, res) => {res.render('index', {title: 'Homepage'})});
+router.get('/', (req, res) => { res.render('index', { title: 'Homepage' }) });
 router.get('/signup', authController.signup);
 router.get('/signin', authController.signin);
 router.post('/signin', passport.authenticate('local-signin', {
-  // successRedirect: '/',
+  successRedirect: '/',
   failureRedirect: 'signin',
   failureFlash: true
-}), (req, res) => {
-  res.render('index', {user: req.user, loginMessage: req.flash('loginMessage')});
-});
+}));
+
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',
   failureRedirect: '/signup',
