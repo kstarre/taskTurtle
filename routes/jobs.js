@@ -11,7 +11,7 @@ router.post('/', authController.isLoggedIn, jobController.create_a_job_post);
 router.get('/create', authController.isLoggedIn, (req, res) => {
   res.render('jobs/create');
 });
-router.get('/jobs/search', jobController.job_list_search);
+router.get('/search', jobController.job_list_search);
 // Send user to create job page
 // router.get('/create', (req, res) => { res.render('jobs/create'); });
 // router.get('/create', jobController.create_a_job_get);

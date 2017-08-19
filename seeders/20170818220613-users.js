@@ -20,13 +20,15 @@ for (var i = 0; i < 50; i++) {
 }
 
 var jobData = [];
-var jobCreator = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+var jobCreator = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var category
 for (var i = 0; i < 50; i++) {
   jobData[i] = {
     title: faker.lorem.words(),
     description: faker.lorem.sentence(),
     duration: 5,
     UserId: jobCreator[i % 10],
+    category: Math.floor(Math.random() * 5) + 1,
     createdAt: new Date(),
     updatedAt: new Date()
   }
