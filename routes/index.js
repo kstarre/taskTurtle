@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var indexController = require('../controllers/indexController');
 var authController = require('../controllers/authController');
-// var passport = require('../config/passport/passport');
 var passport = require('passport');
 
 /* GET home page. */
@@ -14,8 +13,7 @@ router.post('/signin', passport.authenticate('local-signin', {
   failureRedirect: 'signin',
   failureFlash: true
 }), (req, res) => {
-  // console.log(req.user);
-  res.render('index', {user: req.user});
+  res.render('index', {user: req.user, loginMessage: req.flash('loginMessage')});
 });
 router.post('/signup', passport.authenticate('local-signup', {
   successRedirect: '/',

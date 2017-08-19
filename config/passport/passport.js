@@ -21,7 +21,8 @@ module.exports = function(passport, user) {
       }).then(function(user) {
         if (user) {
           return done(null, false, {
-            message: "That email is already registered."
+            message: "That email is already registered.",
+            loginMessage: req.flash('loginMessage', 'That email is already registered')
           });
         } else {
           var userPassword = generateHash(password);
@@ -67,13 +68,15 @@ module.exports = function(passport, user) {
       }).then(function(user) {
         if (!user) {
           return done(null, false, {
-            message: "Email does not exist"
+            message: "Email does not exist",
+            loginMessage: req.flash('loginMessage', 'Email does not exist')
           });
         }
 
         if (!isValidPassword(user.password, password)) {
           return done(null, false, {
-            message: "Invalid password"
+            message: "Invalid password",
+            loginMessage: req.flash('loginMessage', 'Invalid Password')
           });
         }
 
