@@ -7,7 +7,7 @@ module.exports = function(sequelize, Sequelize) {
       notEmpty: true
     },
     description: {
-      type: Sequelize.STRING
+      type: Sequelize.TEXT
     },
     duration: {
       type: Sequelize.INTEGER,

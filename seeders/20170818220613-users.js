@@ -19,24 +19,23 @@ for (var i = 0; i < 50; i++) {
   }
 }
 
+var jobData = [];
+var jobCreator = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+for (var i = 0; i < 50; i++) {
+  jobData[i] = {
+    title: faker.lorem.words(),
+    description: faker.lorem.sentence(),
+    duration: 5,
+    UserId: jobCreator[i % 10],
+    createdAt: new Date(),
+    updatedAt: new Date()
+  }
+}
+
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Users', userData).then(() => {
-      return queryInterface.bulkInsert('Jobs', [{
-        title: "Paint the house",
-        description: "I have a home that is 3,000 sq ft. that I need painted",
-        duration: 4,
-        UserId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }, {
-        title: "Cleaning",
-        description: "Need someone to come and clean the house",
-        duration: 5,
-        UserId: 2,
-        createdAt: new Date(),
-        updatedAt: new Date()
-      }])
+      return queryInterface.bulkInsert('Jobs',jobData)
     });
   },
 
