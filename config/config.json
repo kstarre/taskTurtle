@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "dataguard",
-    "database": "taskturtle2",
+    "password": "headache",
+    "database": "taskturtle",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
