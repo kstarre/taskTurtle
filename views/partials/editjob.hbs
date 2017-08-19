@@ -1,40 +1,63 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
+<section class="clearfix bg-dark taskSection">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
 
-            <form id="editJob" method="POST" action="/:jobID/edit?_method=PUT">
-                <div class="form-group">
-                    <label for="jobTitle">Job Title</label>
-                    <input class="text" type="text" name="jobTitle" value="{{title}}" />
-                </div>
-                <div class="for">
-                    <label for="jobDescription">Job Description</label>
-                    <input class="text" type="text" name="jobDescription" value="{{description}}" />
-                </div>
-                <div class="form-group">
-                    <label for="duration">Bid Duration</label>
-                    <input class="integer" type="integer" name="duration" value="{{duration}}" />
-                </div>
-                <div class="form-group">
-                    <label for="location">Location</label>
-                    <input type="text" name="location" value="{{location}}" />
-                </div>
-                <div class="form-group">
-                    <label for="jobType">Job Type</label>
-                    <input class="checkbox" type="checkbox" name="construction">Construction
-                    <br>
-                    <input class="checkbox" type="checkbox" name="indoor">Indoor
-                    <br>
-                    <input class="checkbox" type="checkbox" name="landscaping">Landscaping
-                    <br>
-                    <input class="checkbox" type="checkbox" name="outdoor">Outdoor
-                    <br>
-                    <input class="checkbox" type="checkbox" name="renovation">Renovation
-                    <br>
-                </div>
-                <button type="submit" class="btn btn-default">Update</button>
-            </form>
+                <form id="editJob" method="POST" action="/:jobID/edit?_method=PUT">
 
+                    <div class="dashboardBoxBg mb30">
+                        <div class="profileIntro paraMargin">
+                            <h3>Edit Task and Add Photo</h3>
+                            <p>Upload a image to show the project you want the community to bid on.</p>
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <div class="imageUploader text-center">
+                                        <div class="file-upload">
+                                            <div class="upload-area">
+                                                <input type="file" name="img[]" class="file">
+                                                <button class="browse" type="button">Click or Drag images here</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-6 col-xs-12">
+                                    <label for="jobTitle">Task Title</label>
+                                    <input class="form-control" id="taskTitle" type="text" name="jobTitle" value="{{title}}" />
+                                </div>
+                                <div class="form-group col-sm-6 col-xs-12">
+                                    <label for="taskCategory">Category</label>
+                                    <div class="contactSelect">
+                                      <select name="guiest_id9" id="guiest_id9" class="select-drop">
+                                        <option value="1">Construction</option>
+                                        <option value="2">Indoor</option>
+                                        <option value="3">Landscaping</option>
+                                        <option value="4">Outdoor</option>
+                                        <option value="5">Renovation</option>
+                                      </select>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label for="jobDescription">Describe the Task</label>
+                                    <textarea class="form-control" rows="3" name="jobDescription" value="{{description}}"></textarea>
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label for="location">Task address</label>
+                                    <input class="form-control" id="taskZipCode" type="text" name="location" value="{{location}}" />
+                                </div>
+                                <div class="form-group col-xs-12">
+                                    <label for="duration">Bid Length</label>
+                                    <input class="integer form-control" type="integer" name="duration" value="{{duration}}" id="addPrice" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-footer text-center">
+                        <button type="submit" class="btn-submit">Update</button>
+                    </div>
+                </form>
+
+            </div>
         </div>
     </div>
-</div>
+</section>
