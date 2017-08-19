@@ -104,13 +104,20 @@ exports.get_bids_on_job = (req, res) => {
       JobId: req.params.jobID
     }
   }).then( data => {
-    res.render("viewbids", {
+    res.render("jobs/job", {
       bids: data
     })
   })
-  res.send('NOT IMPLEMENTED: List of all bids on a job');
 };
 
 exports.accept_bid = (req, res) => {
-  res.send('NOT IMPLEMENTD: Accept a bid for a job');
+  Bid.update({
+    accepted: req.body.accepted
+  }, {
+    where: {
+      id: req.params.bidID
+    }
+  }).then( () => {
+    res.redirect("/")
+  });
 };
