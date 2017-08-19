@@ -39,12 +39,9 @@ exports.create_a_job_post = (req, res) => {
   Job.create({
     title: req.body.jobTitle,
     description: req.body.jobDescription,
-    duration: req.body.jobDuration,
-    construction: (req.body.construction === "on" ? true : false),
-    indoor: (req.body.indoor === "on" ? true : false),
-    landscaping: (req.body.landscaping === "on" ? true : false),
-    outdoor: (req.body.outdoor === "on" ? true : false),
-    renovation: (req.body.renovation === "on" ? true : false),
+    duration: req.body.duration,
+    category: req.body.taskCategory,
+    location: req.body.taskAddress,
     UserId: req.user.id
   }).then(() => {
     res.redirect("/jobs");
@@ -70,12 +67,8 @@ exports.update_a_job = (req, res) => {
     title: req.body.jobTitle,
     description: req.body.jobDescription,
     duration: req.body.duration,
-    location: req.body.location,
-    construction: (req.body.construction === "on" ? true : false),
-    indoor: (req.body.indoor === "on" ? true : false),
-    landscaping: (req.body.landscaping === "on" ? true : false),
-    outdoor: (req.body.outdoor === "on" ? true : false),
-    renovation: (req.body.renovation === "on" ? true : false)
+    location: req.body.taskAddress,
+    category: req.body.taskCategory
   }, {
     where: {
       id: req.params.id

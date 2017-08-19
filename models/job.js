@@ -19,7 +19,7 @@ module.exports = function(sequelize, Sequelize) {
     category: {
       type: Sequelize.INTEGER,
       allowNull: true
-    }
+    },
     location: {
       type: Sequelize.INTEGER,
       len: [5]
