@@ -26,6 +26,7 @@
     "express": "~4.15.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
+    "faker": "^4.1.0",
     "method-override": "^2.3.9",
     "morgan": "~1.8.1",
     "mysql2": "^1.4.1",
