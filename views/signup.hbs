@@ -6,7 +6,7 @@
         <div class="signUpFormArea">
           <div class="priceTableTitle">
             <h2>Account Sign Up and Registration</h2>
-            <p>Please fill out the fields below to create your account. We will send your account information to the email address you enter. Your email address and information will NOT be sold or shared with any 3rd party. If you already have an account, please, <a href="/signin">click here</a>.</p>
+            <p>Please fill out the fields below to create your account. If you already have an account, please, <a href="/signin">click here</a>.</p>
           </div>
           <div class="signUpForm">
             <form name="signup" method="post" action="/signup">
@@ -37,7 +37,12 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" name "contractor"> I'm a Contractor</label>
+                  <input type="checkbox" value='contractor' name="contractor" data-toggle='collapse' data-target='#company' aria-expanded="false" aria-controls="company" /> If you're a contractor, check this box. 
+                </label>
+              </div>
+              <div class="form-group collapse" id="company">
+                <label for="company">Company</label>
+                <input type="text" name="company" />
               </div>
               <div class="form-group col-xs-12 mb0">
                 <button type="submit" class="btn btn-primary">Create Account</button>

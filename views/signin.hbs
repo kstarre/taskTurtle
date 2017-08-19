@@ -4,22 +4,23 @@
     <div class="row">
       <div class="center-block col-md-5 col-sm-6 col-xs-12">
         <div class="panel panel-default loginPanel">
-          <div class="panel-heading text-center">Member Log In</div>
+          <div class="panel-heading text-center">Log In</div>
+          {{loginMessage}}
           <div class="panel-body">
             <form class="loginForm" action="signin" method="post">
               <div class="form-group">
-                <label for="email">Email *</label>
+                <label for="email">Email</label>
                 <input type="text" name="email" class="form-control" id="userName">
-                <p class="help-block">Enter the e-mail address associated with your account</p>
+                <p class="help-block">The e-mail you signed up with</p>
               </div>
               <div class="form-group">
-                <label for="password">Password *</label>
+                <label for="password">Password</label>
                 <input type="password" name="password" class="form-control" id="userPassword">
-                <p class="help-block">Enter the password you chose when signing up</p>
+                <p class="help-block">The password entered at sign up</p>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary pull-left">Log In</button>
-                <a href="#" class="pull-right link">Fogot Password?</a>
+               <!-- <a href="#" class="pull-right link">Fogot Password?</a> -->
               </div>
             </form>
           </div>
