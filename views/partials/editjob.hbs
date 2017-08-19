@@ -4,16 +4,16 @@
 
             <form id="editJob" method="POST" action="/:jobID/edit?_method=PUT">
                 <div class="form-group">
-                    <label for="jobtitle">Job Title</label>
+                    <label for="jobTitle">Job Title</label>
                     <input class="text" type="text" name="jobTitle" value="{{title}}" />
                 </div>
                 <div class="for">
-                    <label for="jobdescription">Job Description</label>
+                    <label for="jobDescription">Job Description</label>
                     <input class="text" type="text" name="jobDescription" value="{{description}}" />
                 </div>
                 <div class="form-group">
                     <label for="duration">Bid Duration</label>
-                    <input class="integer" type="integer" name="bidLength" value="{{duration}}" />
+                    <input class="integer" type="integer" name="duration" value="{{duration}}" />
                 </div>
                 <div class="form-group">
                     <label for="location">Location</label>

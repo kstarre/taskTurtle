@@ -66,15 +66,48 @@ exports.delete_a_job = (req, res) => {
 };
 
 exports.update_a_job = (req, res) => {
-  res.send('NOT IMPLEMENTED: Job update PUT ' + req.params.id);
+  Job.update({
+    title: req.body.jobTitle,
+    description: req.body.jobDescription,
+    duration: req.body.duration,
+    location: req.body.location,
+    construction: (req.body.construction === "on" ? true : false),
+    indoor: (req.body.indoor === "on" ? true : false),
+    landscaping: (req.body.landscaping === "on" ? true : false),
+    outdoor: (req.body.outdoor === "on" ? true : false),
+    renovation: (req.body.renovation === "on" ? true : false)
+  }, {
+    where: {
+      id: req.params.id
+    }
+  }).then( () => {
+    res.redirect("/jobs");
+  })
 };
 
 // Bids
 exports.create_a_bid = (req, res) => {
-  res.send('NOT IMPLEMENTED: Create a bid for job');
-}
+  Bid.create({
+      amount: req.body.bidAmount,
+      duration: req.body.jobDuration,
+      accepted: req.body.accepted,
+      JobId: req.params.id
+    })
+    .then(function() {
+      res.redirect('/jobs/' + req.params.id);
+    });
+};
 
 exports.get_bids_on_job = (req, res) => {
+  Bid.findAll({
+    where: {
+      JobId: req.params.jobID
+    }
+  }).then( data => {
+    res.render("viewbids", {
+      bids: data
+    })
+  })
   res.send('NOT IMPLEMENTED: List of all bids on a job');
 };
 
