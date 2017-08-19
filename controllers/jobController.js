@@ -12,9 +12,12 @@ exports.job_list = (req, res) => {
 };
 
 exports.job_list_search = (req, res) => {
-  let taskCategory = req.body.taskCategory;
-  if (taskCategory === 0) {
-    if (req.body.zipcode === null) {
+  let category = parseInt(req.query.category);
+  let zipcode = parseInt(req.query.zipcode);
+  console.log(category);
+  if (category == 0) {
+    if (isNaN(zipcode)) {
+      console.log("Step 2reached");
       Job.findAll()
         .then((results) => {
           res.render('jobs/index', { jobs: results });
@@ -23,7 +26,7 @@ exports.job_list_search = (req, res) => {
     else {
       Job.findAll({
         where: {
-          location: req.body.zipcode
+          location: zipcode
         }
       }).then((results) => {
           res.render('jobs/index', { jobs: results });
@@ -31,10 +34,10 @@ exports.job_list_search = (req, res) => {
     }
   }
   else {
-    if (req.body.zipcode === null) {
+    if (isNaN(zipcode)) {
       Job.findAll({
         where: {
-          category: req.body.taskCategory
+          category: category
         }
       })
         .then((results) => {
@@ -44,8 +47,8 @@ exports.job_list_search = (req, res) => {
     else {
       Job.findAll({
         where: {
-          location: req.body.zipcode,
-          category: req.body.taskCategory
+          location: location,
+          category: category
         }
       }).then((results) => {
           res.render('jobs/index', { jobs: results });
