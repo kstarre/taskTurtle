@@ -69,25 +69,9 @@ module.exports = {
             isInt: true
           }
         },
-        construction: {
-          type: Sequelize.BOOLEAN,
-          defaultValue: false
-        },
-        indoor: {
-          type: Sequelize.BOOLEAN,
-          defaultValue: false
-        },
-        landscaping: {
-          type: Sequelize.BOOLEAN,
-          defaultValue: false
-        },
-        outdoor: {
-          type: Sequelize.BOOLEAN,
-          defaultValue: false
-        },
-        renovation: {
-          type: Sequelize.BOOLEAN,
-          defaultValue: false
+        category: {
+          type: Sequelize.INTEGER,
+          allowNull: true
         },
         location: {
           type: Sequelize.INTEGER,
