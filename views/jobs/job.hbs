@@ -4,7 +4,7 @@
 </div>
 <div class="row">
   <h3>Add a Bid</h3>
-  <form id="job" method="POST" action="/jobs/{{job.id}}/bids">
+  <form id="job" method="POST" action="/{{job.id}}/bids">
     <div class="form-group">
       <label for="bidAmount">Bid Amount</label>
       <input class="text" name="bidAmount" type="text" />
@@ -38,7 +38,7 @@
             <td>{{amount}}</td>
             <td>{{duration}}</td>
             <td>
-              <form action="/bids/{{id}}?_method=PUT" method="POST">
+              <form action="/{{JobId}}/bids/{{id}}?_method=PUT" method="POST">
                 <input type="hidden" name="accepted" value="1">
                 <button class="btn btn-default" type="submit">Accept?</button>
               </form>

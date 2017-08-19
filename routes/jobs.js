@@ -23,12 +23,10 @@ router.get('/:id', jobController.get_job_details);
 router.put('/:id', jobController.update_a_job);
 router.delete('/:id', jobController.delete_a_job);
 
-router.get('/:id/bids', jobController.get_bids_on_job);
+// Bids
+router.get('/:id', jobController.get_bids_on_job);
 router.post('/:id/bids', jobController.create_a_bid);
 /*router.post('/:id/bids', bidController.create_a_bid);*/
-
-
-// allow for accepting maybe?
 router.put('/:id/bids/:bidId', jobController.accept_bid);  
 
 
