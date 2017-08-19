@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var jobController = require('../controllers/jobController');
-var bidController = require('../controllers/bidController');
 var authController = require('../controllers/authController');
 /* GET users listing. */
 // router.get('/create', jobController.create);
@@ -26,7 +25,6 @@ router.delete('/:id', jobController.delete_a_job);
 // Bids
 router.get('/:id', jobController.get_bids_on_job);
 router.post('/:id/bids', jobController.create_a_bid);
-/*router.post('/:id/bids', bidController.create_a_bid);*/
 router.put('/:id/bids/:bidId', jobController.accept_bid);  
 
 
