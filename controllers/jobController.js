@@ -11,6 +11,49 @@ exports.job_list = (req, res) => {
     });
 };
 
+exports.job_list_search = (req, res) => {
+  let taskCategory = req.body.taskCategory;
+  if (taskCategory === 0) {
+    if (req.body.zipcode === null) {
+      Job.findAll()
+        .then((results) => {
+          res.render('jobs/index', { jobs: results });
+        });
+    }
+    else {
+      Job.findAll({
+        where: {
+          location: req.body.zipcode
+        }
+      }).then((results) => {
+          res.render('jobs/index', { jobs: results });
+        });
+    }
+  }
+  else {
+    if (req.body.zipcode === null) {
+      Job.findAll({
+        where: {
+          category: req.body.taskCategory
+        }
+      })
+        .then((results) => {
+          res.render('jobs/index', { jobs: results });
+        });
+    }
+    else {
+      Job.findAll({
+        where: {
+          location: req.body.zipcode,
+          category: req.body.taskCategory
+        }
+      }).then((results) => {
+          res.render('jobs/index', { jobs: results });
+        });
+    }
+  };
+};
+
 // Display details for Jobs
 exports.get_job_details = (req, res) => {
   // res.send('NOT IMPLEMENTED: Job detail GET ' + req.params.id);
@@ -18,7 +61,7 @@ exports.get_job_details = (req, res) => {
     .then(job => {
       Bid.findAll({
           where: {
-            jobId: req.params.id
+            JobId: req.params.id
           }
         })
         .then(bids => {
@@ -81,10 +124,11 @@ exports.update_a_job = (req, res) => {
 // Bids
 exports.create_a_bid = (req, res) => {
   Bid.create({
-      amount: req.body.bidAmount,
-      duration: req.body.jobDuration,
+      amount: req.body.amount,
+      duration: req.body.duration,
       accepted: req.body.accepted,
-      JobId: req.params.id
+      JobId: req.params.id,
+      UserId: req.user.id
     })
     .then(function() {
       res.redirect('/jobs/' + req.params.id);
@@ -94,7 +138,7 @@ exports.create_a_bid = (req, res) => {
 exports.get_bids_on_job = (req, res) => {
   Bid.findAll({
     where: {
-      JobId: req.params.jobID
+      JobId: req.params.id
     }
   }).then( data => {
     res.render("jobs/job", {

@@ -15,7 +15,8 @@ module.exports = function(sequelize, Sequelize) {
     },
     accepted: {
       type: Sequelize.BOOLEAN,
-      defaultValue: false
+      defaultValue: false,
+      notEmpty: true
     }
   });
 
