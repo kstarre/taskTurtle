@@ -16,10 +16,11 @@
     "url": "https://github.com/Somesing9/taskTurtle/issues"
   },
   "homepage": "https://github.com/Somesing9/taskTurtle#readme",
- "dependencies": {
+  "dependencies": {
     "async": "^2.5.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "~1.17.1",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",

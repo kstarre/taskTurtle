@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
 var passport = require('passport');
 var session = require('express-session');
+var flash = require('connect-flash');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var jobs = require('./routes/jobs');
@@ -30,6 +31,7 @@ app.use(session({
 })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
+app.use(flash());
 require('./config/passport/passport')(passport, models.User);
 
 // view engine setup
