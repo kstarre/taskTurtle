@@ -81,7 +81,7 @@ module.exports = function(passport, user) {
         }
 
         var userinfo = user.get();
-        return done(null, userinfo);
+        return done(null, userinfo, {user: req.user});
       }).catch(function(err) {
         console.log("Error: ", err);
         return done(null, false, {
