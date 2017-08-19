@@ -6,22 +6,21 @@
     </div>
     <div class="row">
       <h3>Add a Bid</h3>
-      <form id="job" method="POST" action="/jobs/{{job.id}}/bids">
+      <form id="job" method="POST" action="/{{job.id}}/bids">
         <div class="form-group">
-          <label for="bidAmount">Bid Amount</label>
-          <input class="text" name="bidAmount" type="text" />
+          <label for="amount">Bid Amount</label>
+          <input class="text" name="amount" type="text" />
         </div>
         <div class="form-group">
-          <label for="jobDuration">Job Duration</label>
-          <input name="jobDuration" type="text" />
+          <label for="duration">Job Duration</label>
+          <input name="duration" type="text" />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
     </form>
   </div>
-  <div class="row"></div>
-  <p>Bids</p>
+
   <div class="row">
     <div class="col-md-12">
       <table class="table table-hover">
@@ -40,9 +39,9 @@
               <td>{{amount}}</td>
               <td>{{duration}}</td>
               <td>
-                <form action="/bids/{{id}}?_method=PUT" method="POST">
+                <form action="/{{JobId}}/bids/{{id}}?_method=PUT" method="POST">
                   <input type="hidden" name="accepted" value="1">
-                  <button class="btn btn-default" type="submit">Accept?</button>
+                  <button class="btn-submit" type="submit">Accept?</button>
                 </form>
               </td>
             </tr>

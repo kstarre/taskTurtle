@@ -5,28 +5,27 @@
       <div class="col-xs-12">
         <div class="banerInfo">
           <h1>Find a task</h1>
-          <p>Connect with local contactors</p>
-          <form class="form-inline" action="listing-sidebar-map-left.html" method="">
-            <div class="form-group">
-            <div class="contactSelect">
-                    <select name="guiest_id9" id="guiest_id9" class="select-drop">
-                      <option value="0">All Category</option>
-                      <option value="1">Construction</option>
-                      <option value="2">Indoor</option>
-                      <option value="3">Landscaping</option>
-                      <option value="4">Outdoor</option>
-                      <option value="5">Renovation</option>
-                    </select>
-                  </div>
+          <p>Connect with local contractors</p>
+
+          <form class="form-inline" action="/jobs/search" method="GET">
+            <div class="contactSelect form-group">
+              <select name="taskCategory" id="guiest_id9" class="select-drop">
+                <option value="0">All Categories</option>
+                <option value="1">Construction</option>
+                <option value="2">Indoor</option>
+                <option value="3">Landscaping</option>
+                <option value="4">Outdoor</option>
+                <option value="5">Renovation</option>
+              </select>
             </div>
             <div class="form-group">
               <div class="input-group">
                 <div class="input-group-addon">Near</div>
-                <input type="text" class="form-control" id="nearLocation" placeholder="enter zip code">
+                <input type="text" name='zipcode' class="form-control" id="nearLocation" placeholder="enter zip code">
                 <div class="input-group-addon addon-right"><i class="icon-listy icon-target" aria-hidden="true"></i></div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary">Search <i class="fa fa-search" aria-hidden="true"></i></button>
+            <button type="submit" class="btn btn-primary">Search<i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </div>
       </div>

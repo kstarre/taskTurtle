@@ -11,6 +11,7 @@ router.post('/', authController.isLoggedIn, jobController.create_a_job_post);
 router.get('/create', authController.isLoggedIn, (req, res) => {
   res.render('jobs/create');
 });
+router.get('/jobs/search', jobController.job_list_search);
 // Send user to create job page
 // router.get('/create', (req, res) => { res.render('jobs/create'); });
 // router.get('/create', jobController.create_a_job_get);
@@ -23,8 +24,9 @@ router.put('/:id', jobController.update_a_job);
 router.delete('/:id', jobController.delete_a_job);
 
 // Bids
-router.get('/:id', jobController.get_bids_on_job);
+/*router.get('/:id', jobController.get_bids_on_job);*/
 router.post('/:id/bids', jobController.create_a_bid);
+router.post('/jobs/:id/bids', jobController.create_a_bid);
 router.put('/:id/bids/:bidId', jobController.accept_bid);  
 
 
