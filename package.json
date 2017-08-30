@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Bidding app for jobs",
   "scripts": {
-    "start": "sequelize db:seed:undo:all && sequelize db:migrate:undo:all && sequelize db:migrate && sequelize db:seed:all && nodemon ./bin/www"
+    "start": "nodemon ./bin/www"
   },
   "repository": {
     "type": "git",
