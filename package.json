@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Bidding app for jobs",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
