@@ -1,6 +1,5 @@
 # taskTurtle
-set DEBUG=taskturtle: * & npm run devstart
-=======
+
 # What is TaskTurtle?
 
 taskTurtle is a site to connect people who need work done, with people who do work. Are you in need of a handyman? A painter?
@@ -38,3 +37,11 @@ the job creator will be revealed. It's then time for the job creator, and the co
 final details, and get to work.
 
 # Welcome to TaskTurtle. Let's get some work done.
+
+Test user:
+E-mail: doe@gmail.com
+Password: testuser
++++++++
+To run locally:
+set DEBUG=taskturtle: * & npm run devstart
+=======
