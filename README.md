@@ -38,10 +38,11 @@ final details, and get to work.
 
 # Welcome to TaskTurtle. Let's get some work done.
 
+=======
 Test user:
 E-mail: doe@gmail.com
 Password: testuser
-+++++++
+=======
 To run locally:
 set DEBUG=taskturtle: * & npm run devstart
 =======
